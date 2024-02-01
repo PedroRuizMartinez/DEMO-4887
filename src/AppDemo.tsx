@@ -1,5 +1,3 @@
-import { Home } from './components/pages/UserList';
-import { Users } from './components/pages/Users';
 import './main.css';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { url_home, url_users } from './routes';

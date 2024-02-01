@@ -1,0 +1,143 @@
+openapi: 3.0.0
+info:
+  title: "Users API"
+  version: "1.0.0"
+paths:
+  /users:
+    get:
+      summary: "Get a list of users"
+      responses:
+        '200':
+          description: "Successful operation"
+          content:
+            application/json:
+              example:
+                - id: 1
+                  name: "Leanne Graham"
+                  username: "Bret"
+                  email: "Sincere@april.biz"
+                  address:
+                    street: "Kulas Light"
+                    suite: "Apt. 556"
+                    city: "Gwenborough"
+                    zipcode: "92998-3874"
+                    geo:
+                      lat: "-37.3159"
+                      lng: "81.1496"
+                  phone: "1-770-736-8031 x56442"
+                  website: "hildegard.org"
+                  company:
+                    name: "Romaguera-Crona"
+                    catchPhrase: "Multi-layered client-server neural-net"
+                    bs: "harness real-time e-markets"
+                - id: 2
+                  name: "Ervin Howell"
+                  username: "Antonette"
+                  email: "Shanna@melissa.tv"
+                  address:
+                    street: "Victor Plains"
+                    suite: "Suite 879"
+                    city: "Wisokyburgh"
+                    zipcode: "90566-7771"
+                    geo:
+                      lat: "-43.9509"
+                      lng: "-34.4618"
+                  phone: "010-692-6593 x09125"
+                  website: "anastasia.net"
+                  company:
+                    name: "Deckow-Crist"
+                    catchPhrase: "Proactive didactic contingency"
+                    bs: "synergize scalable supply-chains"
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+  /users/{userId}:
+    get:
+      summary: "Get a user by ID"
+      parameters:
+        - name: userId
+          in: path
+          description: "ID of the user to retrieve"
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Successful operation"
+          content:
+            application/json:
+              example:
+                id: 1
+                name: "Leanne Graham"
+                username: "Bret"
+                email: "Sincere@april.biz"
+                address:
+                  street: "Kulas Light"
+                  suite: "Apt. 556"
+                  city: "Gwenborough"
+                  zipcode: "92998-3874"
+                  geo:
+                    lat: "-37.3159"
+                    lng: "81.1496"
+                phone: "1-770-736-8031 x56442"
+                website: "hildegard.org"
+                company:
+                  name: "Romaguera-Crona"
+                  catchPhrase: "Multi-layered client-server neural-net"
+                  bs: "harness real-time e-markets"
+              schema:
+                $ref: "#/components/schemas/User"
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+        address:
+          $ref: "#/components/schemas/Address"
+        phone:
+          type: string
+        website:
+          type: string
+        company:
+          $ref: "#/components/schemas/Company"
+
+    Address:
+      type: object
+      properties:
+        street:
+          type: string
+        suite:
+          type: string
+        city:
+          type: string
+        zipcode:
+          type: string
+        geo:
+          $ref: "#/components/schemas/Geo"
+
+    Geo:
+      type: object
+      properties:
+        lat:
+          type: string
+        lng:
+          type: string
+
+    Company:
+      type: object
+      properties:
+        name:
+          type: string
+        catchPhrase:
+          type: string
+        bs:
+          type: string
