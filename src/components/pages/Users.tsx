@@ -1,3 +1,7 @@
 export const Users = () => {
-    return <div>Users</div>;
+    return (
+        <>
+            <h1>USERS</h1>
+        </>
+    );
 };
