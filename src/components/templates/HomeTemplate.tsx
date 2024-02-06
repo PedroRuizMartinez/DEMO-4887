@@ -1,82 +1,42 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { UserListPage } from '../pages/UserListPage';
 import { UserOutlined } from '@ant-design/icons';
 import { url_home, url_users } from '../../routes';
-
-const { Sider, Content } = Layout;
+import {
+    StyledSider,
+    SidebarHeader,
+    StyledMenu,
+    StyledContent,
+    MenuItemLink,
+} from './styles/styleTemplate';
 
 const HomeTemplate: React.FC = () => {
     const location = useLocation();
 
     return (
         <Layout style={{ display: 'flex', flexDirection: 'row' }}>
-            <Sider
-                width={240}
-                style={{
-                    background: '#142a61',
-                    color: 'white',
-                    flexGrow: 1,
-                    border: '2px solid #ddd',
-                    overflow: 'auto',
-                }}
-            >
-                <div
-                    style={{
-                        padding: '2em 1em',
-                        fontSize: '2em',
-                        fontWeight: 'bold',
-                    }}
-                >
-                    <div style={{ fontSize: '70px', lineHeight: 0.8, marginLeft: '30%' }}>
+            <StyledSider width={240}>
+                <SidebarHeader style={{ background: '#142a61' }}>
+                    <div>
                         <UserOutlined />
                     </div>
-                    <div style={{ fontSize: '18px', marginLeft: '15px', marginTop: '10px' }}>
-                        CONTACT USERS
-                    </div>
-                </div>
-                <Menu
-                    mode='inline'
-                    style={{
-                        height: '100vh',
-                        background: '#142a61',
-                        color: '#e5e5e5',
-                    }}
-                    itemIcon={false}
-                    items={[
-                        {
-                            key: 'home',
-                            label: (
-                                <Link to={url_home} style={{ fontSize: '16px' }}>
-                                    Home
-                                </Link>
-                            ),
-                        },
-                        {
-                            key: 'users',
-                            label: (
-                                <Link to={url_users} style={{ fontSize: '16px' }}>
-                                    Users
-                                </Link>
-                            ),
-                        },
-                    ]}
-                />
-            </Sider>
+                    <div>CONTACT USERS</div>
+                </SidebarHeader>
+                <StyledMenu mode='inline' itemIcon={false}>
+                    <Menu.Item key='home'>
+                        <MenuItemLink to={url_home}>Home</MenuItemLink>
+                    </Menu.Item>
+                    <Menu.Item key='users'>
+                        <MenuItemLink to={url_users}>Users</MenuItemLink>
+                    </Menu.Item>
+                </StyledMenu>
+            </StyledSider>
             <Layout style={{ padding: '2px 0px 0px 0px', flexGrow: 4 }}>
-                <Content
-                    style={{
-                        border: '20px solid #ccc',
-                        padding: 10,
-                        margin: 0,
-                        minHeight: 280,
-                        paddingRight: '3vw',
-                        paddingLeft: '3vw',
-                    }}
-                >
+                <StyledContent>
                     {location.pathname === url_users ? <UserListPage /> : <Outlet />}
-                </Content>
+                </StyledContent>
             </Layout>
         </Layout>
     );
