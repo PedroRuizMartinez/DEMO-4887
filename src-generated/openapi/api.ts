@@ -172,7 +172,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        usersGetAll: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -203,9 +203,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersUserIdGet: async (userId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        userGetById: async (userId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
-            assertParamExists('usersUserIdGet', 'userId', userId)
+            assertParamExists('userGetById', 'userId', userId)
             const localVarPath = `/users/{userId}`
                 .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -246,10 +246,10 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.usersGet(options);
+        async usersGetAll(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.usersGetAll(options);
             const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['DefaultApi.usersGet']?.[index]?.url;
+            const operationBasePath = operationServerMap['DefaultApi.usersGetAll']?.[index]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -259,10 +259,10 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersUserIdGet(userId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.usersUserIdGet(userId, options);
+        async userGetById(userId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.userGetById(userId, options);
             const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['DefaultApi.usersUserIdGet']?.[index]?.url;
+            const operationBasePath = operationServerMap['DefaultApi.userGetById']?.[index]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -281,8 +281,8 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersGet(options?: any): AxiosPromise<Array<User>> {
-            return localVarFp.usersGet(options).then((request) => request(axios, basePath));
+        usersGetAll(options?: any): AxiosPromise<Array<User>> {
+            return localVarFp.usersGetAll(options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -291,8 +291,8 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersUserIdGet(userId: number, options?: any): AxiosPromise<User> {
-            return localVarFp.usersUserIdGet(userId, options).then((request) => request(axios, basePath));
+        userGetById(userId: number, options?: any): AxiosPromise<User> {
+            return localVarFp.userGetById(userId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -311,8 +311,8 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public usersGet(options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).usersGet(options).then((request) => request(this.axios, this.basePath));
+    public usersGetAll(options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).usersGetAll(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -323,8 +323,8 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public usersUserIdGet(userId: number, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).usersUserIdGet(userId, options).then((request) => request(this.axios, this.basePath));
+    public userGetById(userId: number, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).userGetById(userId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

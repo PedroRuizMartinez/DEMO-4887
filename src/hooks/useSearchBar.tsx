@@ -6,9 +6,5 @@ export const useSearchBar = () => {
     const handleSearch = (selectedKey: string) => {
         setSearchText(selectedKey);
     };
-    return {
-        searchText,
-        handleSearch,
-        setSearchText,
-    };
+    return { searchText, handleSearch, setSearchText };
 };

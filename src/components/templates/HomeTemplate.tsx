@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { UserList } from '../pages/UserList';
+import { UserListPage } from '../pages/UserListPage';
 import { UserOutlined } from '@ant-design/icons';
 import { url_home, url_users } from '../../routes';
 
@@ -13,7 +13,7 @@ const HomeTemplate: React.FC = () => {
     return (
         <Layout style={{ display: 'flex', flexDirection: 'row' }}>
             <Sider
-                width={200}
+                width={240}
                 style={{
                     background: '#142a61',
                     color: 'white',
@@ -45,8 +45,22 @@ const HomeTemplate: React.FC = () => {
                     }}
                     itemIcon={false}
                     items={[
-                        { key: 'home', label: <Link to={url_home}>Home</Link> },
-                        { key: 'users', label: <Link to={url_users}>Users</Link> },
+                        {
+                            key: 'home',
+                            label: (
+                                <Link to={url_home} style={{ fontSize: '16px' }}>
+                                    Home
+                                </Link>
+                            ),
+                        },
+                        {
+                            key: 'users',
+                            label: (
+                                <Link to={url_users} style={{ fontSize: '16px' }}>
+                                    Users
+                                </Link>
+                            ),
+                        },
                     ]}
                 />
             </Sider>
@@ -61,7 +75,7 @@ const HomeTemplate: React.FC = () => {
                         paddingLeft: '3vw',
                     }}
                 >
-                    {location.pathname === url_users ? <UserList /> : <Outlet />}
+                    {location.pathname === url_users ? <UserListPage /> : <Outlet />}
                 </Content>
             </Layout>
         </Layout>

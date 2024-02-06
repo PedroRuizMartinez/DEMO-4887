@@ -6,7 +6,7 @@ import UserProfilePage from './UserProfilePage';
 
 interface UsersListProps {}
 
-export const UserList: React.FC<UsersListProps> = () => {
+export const UserListPage: React.FC<UsersListProps> = () => {
     const { users, error, getUserById, selectedUser } = useUsers();
     const { Title } = Typography;
 

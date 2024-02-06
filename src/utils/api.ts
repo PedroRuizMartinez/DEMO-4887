@@ -9,6 +9,6 @@ export const getApiConfig = (apiKey: string): Configuration => {
 
 export const getAllUsers = async () => {
     const configRequest = DefaultApiFactory(getApiConfig('allUsers'));
-    const response = await configRequest.usersGet();
+    const response = await configRequest.usersGetAll();
     return response.data || [];
 };

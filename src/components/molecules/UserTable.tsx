@@ -18,7 +18,7 @@ const UserTable: React.FC<UserTableProps> = ({ data, onRowClick }) => {
                 onClick: () => onRowClick(record),
             })}
             pagination={{
-                pageSize: 5,
+                pageSize: 6,
                 total: data.length,
                 showQuickJumper: false,
                 itemRender: (_current, type, originalElement) => {
