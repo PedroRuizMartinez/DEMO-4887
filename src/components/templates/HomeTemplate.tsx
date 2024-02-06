@@ -10,7 +10,7 @@ import {
     StyledMenu,
     StyledContent,
     MenuItemLink,
-} from './styles/styleTemplate';
+} from './styles/style-template';
 
 const HomeTemplate: React.FC = () => {
     const location = useLocation();
