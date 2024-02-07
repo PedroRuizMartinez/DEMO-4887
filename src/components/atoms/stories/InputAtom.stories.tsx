@@ -1,5 +1,5 @@
-import { suffixIcon } from './IconAtom';
-import InputAtom, { AtomInputProps } from './InputAtom';
+import { suffixIcon } from '../IconAtom';
+import InputAtom, { AtomInputProps } from '../InputAtom';
 import { Meta, StoryFn } from '@storybook/react'; 
 
 export default {
