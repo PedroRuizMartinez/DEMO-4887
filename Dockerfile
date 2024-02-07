@@ -10,6 +10,9 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+# Install Java (dependency for openapi-generator-cli)
+RUN apt-get update && apt-get install -y default-jre
+
 # Copy the rest of the application code to the working directory
 COPY . .
 
@@ -23,4 +26,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Start the React app
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
