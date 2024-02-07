@@ -6,6 +6,7 @@ paths:
   /users:
     get:
       summary: "Get a list of users"
+      operationId: usersGetAll
       responses:
         '200':
           description: "Successful operation"
@@ -55,6 +56,7 @@ paths:
   /users/{userId}:
     get:
       summary: "Get a user by ID"
+      operationId: userGetById
       parameters:
         - name: userId
           in: path
