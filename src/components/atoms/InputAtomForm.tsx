@@ -1,5 +1,4 @@
 import { Col, Input, Row } from 'antd';
-import React from 'react';
 
 interface InputAtomProps {
     label?: string;

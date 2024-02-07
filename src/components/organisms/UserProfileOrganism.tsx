@@ -1,4 +1,3 @@
-import React from 'react';
 import UserInfoMolecule from '../molecules/UserInfoMolecule';
 import { User } from '../../../src-generated/openapi/api';
 import { Typography } from 'antd';

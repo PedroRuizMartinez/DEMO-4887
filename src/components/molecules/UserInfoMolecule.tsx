@@ -1,4 +1,3 @@
-import React from 'react';
 import InputAtomForm from '../atoms/InputAtomForm';
 import { Col, Row } from 'antd';
 import { User } from '../../../src-generated/openapi';

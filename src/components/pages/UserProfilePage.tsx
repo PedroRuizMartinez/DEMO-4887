@@ -1,4 +1,3 @@
-import React from 'react';
 import UserProfileOrganism from '../organisms/UserProfileOrganism';
 import { User } from '../../../src-generated/openapi/api';
 

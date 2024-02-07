@@ -1,4 +1,3 @@
-import React from 'react';
 import { Layout, Menu } from 'antd';
 import { Outlet, useLocation } from 'react-router-dom';
 import { UserListPage } from '../pages/UserListPage';

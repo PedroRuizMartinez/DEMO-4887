@@ -3,6 +3,7 @@ import { InputProps } from 'antd';
 import { suffixIcon } from '../atoms/IconAtom';
 import { useSearchBar } from '../../hooks/useSearchBar';
 
+
 interface MoleculeSearchBarProps extends InputProps {
     placeholder?: string;
 }
