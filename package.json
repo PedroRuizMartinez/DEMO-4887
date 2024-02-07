@@ -2,6 +2,7 @@
   "name": "demo-4887",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -44,6 +45,6 @@
     "prettier": "^3.2.4",
     "ts-jest": "^29.1.2",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.12"
   }
 }
