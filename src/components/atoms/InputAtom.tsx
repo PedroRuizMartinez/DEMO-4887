@@ -1,6 +1,6 @@
 import { Input, InputProps } from 'antd';
 
-interface AtomInputProps extends InputProps {
+export interface AtomInputProps extends InputProps {
     suffix?: React.ReactNode;
 }
 
