@@ -21,7 +21,7 @@ const StyledContent = styled(Content)`
 
 const StyledTitle = styled(Title)`
     margin-bottom: 24px;
-    font-size: 24px; /* Tamaño del título más grande */
+    font-size: 24px;
 `;
 
 const TechnologiesList = styled.ul`
@@ -68,9 +68,7 @@ const TemplateDemoPage: React.FC = () => {
             <StyledContent>
                 <StyledTitle level={1}>Contact Users</StyledTitle>
                 <Paragraph style={{ fontSize: '16px' }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum nisl
-                    vitae ultrices aliquam. Phasellus ut neque ut arcu convallis vestibulum sed nec
-                    urna. Aenean quis dictum magna.
+                    Esto es una aplicación Demo que está construida con las siguientes tecnologías:
                 </Paragraph>
                 <StyledTitle level={2}>Tecnologías</StyledTitle>
                 <TechnologiesList>
