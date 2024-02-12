@@ -21,7 +21,7 @@ export const UserListPage: React.FC<UsersListProps> = () => {
 
     useEffect(() => {
         id && getUserById(parseInt(id));
-    }, [getUserById, id]);
+    }, [id, getUserById]);
 
     const handleRowClick = (record: User) => {
         navigate(`${url_users}/${record.id}`);
