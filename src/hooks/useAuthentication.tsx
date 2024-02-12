@@ -1,15 +1,11 @@
 import { message } from 'antd';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { url_login } from '../routes';
 
 const useAuthentication = () => {
     const [authenticated, setAuthenticated] = useState(false);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        checkAuthentication();
-    }, []);
 
     const checkAuthentication = () => {
         const credentials = localStorage.getItem('credentials');
