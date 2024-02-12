@@ -9,8 +9,16 @@ import {
     StyledContent,
     MenuItemLink,
 } from './styles/style-template';
+import { useEffect } from 'react';
+import useAuthentication from '../../hooks/useAuthentication';
 
 const HomeTemplate: React.FC = () => {
+    const { checkAuthentication, handleLogout } = useAuthentication();
+
+    useEffect(() => {
+        checkAuthentication();
+    }, [checkAuthentication]);
+
     return (
         <Layout style={{ display: 'flex', flexDirection: 'row' }}>
             <StyledSider width={240}>
@@ -26,6 +34,9 @@ const HomeTemplate: React.FC = () => {
                     </Menu.Item>
                     <Menu.Item key='users'>
                         <MenuItemLink to={url_users}>Users</MenuItemLink>
+                    </Menu.Item>
+                    <Menu.Item key='logout' onClick={handleLogout}>
+                        Cerrar sesión
                     </Menu.Item>
                 </StyledMenu>
             </StyledSider>

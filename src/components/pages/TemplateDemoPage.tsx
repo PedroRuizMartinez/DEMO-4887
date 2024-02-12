@@ -10,6 +10,8 @@ import {
     SiPrettier,
 } from 'react-icons/si';
 import { GrCloud } from 'react-icons/gr';
+import useAuthentication from '../../hooks/useAuthentication';
+import { useEffect } from 'react';
 
 const { Content } = Layout;
 const { Title, Paragraph, Link: AntLink } = Typography;
@@ -63,6 +65,12 @@ const technologies = [
 ];
 
 const TemplateDemoPage: React.FC = () => {
+    const { checkAuthentication } = useAuthentication();
+
+    useEffect(() => {
+        checkAuthentication();
+    }, [checkAuthentication]);
+
     return (
         <Layout>
             <StyledContent>

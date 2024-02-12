@@ -6,6 +6,7 @@ import UserProfilePage from './UserProfilePage';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { url_users } from '../../routes';
+import useAuthentication from '../../hooks/useAuthentication';
 
 interface UsersListProps {}
 
@@ -18,6 +19,11 @@ export const UserListPage: React.FC<UsersListProps> = () => {
     const { Title } = Typography;
     const { id } = useParams<Params>();
     const navigate = useNavigate();
+    const { checkAuthentication } = useAuthentication();
+
+    useEffect(() => {
+        checkAuthentication();
+    }, [checkAuthentication]);
 
     useEffect(() => {
         id && getUserById(parseInt(id));
