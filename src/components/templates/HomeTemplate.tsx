@@ -34,7 +34,7 @@ const HomeTemplate: React.FC = () => {
             </StyledSider>
             <Layout style={{ padding: '2px 0px 0px 0px', flexGrow: 4 }}>
                 <StyledContent>
-                    {location.pathname === url_users ? <UserListPage /> : <Outlet />}
+                    <Outlet />
                 </StyledContent>
             </Layout>
         </Layout>

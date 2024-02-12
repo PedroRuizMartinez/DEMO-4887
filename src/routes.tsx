@@ -15,6 +15,7 @@ const routes: RouteObject[] = [
         children: [
             { path: url_home, element: <TemplateDemoPage /> },
             { path: url_users, element: <UserListPage /> },
+            { path: url_users + '/:id', element: <UserListPage /> },
         ],
     },
     {
