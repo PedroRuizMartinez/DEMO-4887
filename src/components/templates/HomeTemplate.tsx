@@ -1,6 +1,5 @@
 import { Layout, Menu } from 'antd';
-import { Outlet, useLocation } from 'react-router-dom';
-import { UserListPage } from '../pages/UserListPage';
+import { Outlet } from 'react-router-dom';
 import { UserOutlined } from '@ant-design/icons';
 import { url_home, url_users } from '../../routes';
 import {
@@ -12,8 +11,6 @@ import {
 } from './styles/style-template';
 
 const HomeTemplate: React.FC = () => {
-    const location = useLocation();
-
     return (
         <Layout style={{ display: 'flex', flexDirection: 'row' }}>
             <StyledSider width={240}>
