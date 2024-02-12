@@ -1,4 +1,4 @@
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Typography } from 'antd';
 import { Outlet } from 'react-router-dom';
 import { UserOutlined } from '@ant-design/icons';
 import { url_home, url_users } from '../../routes';
@@ -13,7 +13,7 @@ import { useEffect } from 'react';
 import useAuthentication from '../../hooks/useAuthentication';
 
 const HomeTemplate: React.FC = () => {
-    const { checkAuthentication, handleLogout } = useAuthentication();
+    const { user, role, checkAuthentication, handleLogout } = useAuthentication();
 
     useEffect(() => {
         checkAuthentication();
@@ -27,6 +27,20 @@ const HomeTemplate: React.FC = () => {
                         <UserOutlined />
                     </div>
                     <div>CONTACT USERS</div>
+                    {user && role && (
+                        <>
+                            <Typography.Paragraph
+                                style={{ fontSize: 14, margin: '15px', color: 'white' }}
+                            >
+                                {user}
+                            </Typography.Paragraph>
+                            <Typography.Paragraph
+                                style={{ fontSize: 12, margin: '15px', color: 'white' }}
+                            >
+                                {role}
+                            </Typography.Paragraph>
+                        </>
+                    )}
                 </SidebarHeader>
                 <StyledMenu mode='inline' itemIcon={false}>
                     <Menu.Item key='home'>

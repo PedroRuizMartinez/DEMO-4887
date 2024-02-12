@@ -23,7 +23,7 @@ export const UserListPage: React.FC<UsersListProps> = () => {
 
     useEffect(() => {
         checkAuthentication();
-    }, [checkAuthentication]);
+    }, [checkAuthentication, id]);
 
     useEffect(() => {
         id && getUserById(parseInt(id));

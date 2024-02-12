@@ -15,16 +15,16 @@ export const SidebarHeader = styled.div`
     padding: 2em 1em;
     font-size: 2em;
     font-weight: bold;
+    text-align: center;
 
     div {
-        font-size: 70px;
+        font-size: 40px;
         line-height: 0.8;
-        margin-left: 30%;
+        margin: 0 auto;
     }
 
     div:last-child {
         font-size: 18px;
-        margin-left: 15px;
         margin-top: 10px;
     }
 `;

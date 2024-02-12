@@ -1,30 +1,30 @@
 import { message } from 'antd';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { url_login } from '../routes';
 
 const useAuthentication = () => {
-    const [authenticated, setAuthenticated] = useState(false);
+    const [userInfo, setUserInfo] = useState({ user: '', role: '', authenticated: false });
     const navigate = useNavigate();
 
-    const checkAuthentication = () => {
+    const checkAuthentication = useCallback(() => {
         const credentials = localStorage.getItem('credentials');
         if (credentials && credentials === 'YWRtaW46YWRtaW4=') {
-            setAuthenticated(true);
+            setUserInfo({ user: 'admin', role: 'ROLE_ADMIN', authenticated: true });
         } else {
-            setAuthenticated(false);
+            setUserInfo({ user: '', role: '', authenticated: false });
             navigate(url_login);
         }
-    };
+    }, [navigate]);
 
     const handleLogout = () => {
         localStorage.removeItem('credentials');
-        setAuthenticated(false);
+        setUserInfo({ user: '', role: '', authenticated: false });
         navigate(url_login);
         message.success('Sesión cerrada exitosamente');
     };
 
-    return { authenticated, checkAuthentication, handleLogout };
+    return { ...userInfo, checkAuthentication, handleLogout };
 };
 
 export default useAuthentication;
