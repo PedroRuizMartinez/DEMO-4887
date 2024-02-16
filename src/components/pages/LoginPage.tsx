@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from './LoginForm';
+import LoginForm from '../organisms/LoginForm';
 import { useNavigate } from 'react-router-dom';
 import { url_home } from '../../routes';
 

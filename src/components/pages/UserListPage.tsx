@@ -15,7 +15,7 @@ interface Params {
 }
 
 export const UserListPage: React.FC<UsersListProps> = () => {
-    const { users, error, getUserById, selectedUser } = useUsers();
+    const { users, getUserById, selectedUser } = useUsers();
     const { Title } = Typography;
     const { id } = useParams<Params>();
     const navigate = useNavigate();
@@ -35,7 +35,6 @@ export const UserListPage: React.FC<UsersListProps> = () => {
 
     return (
         <>
-            {error && <div>Error al cargar usuarios</div>}
             {!users && <div>Cargando...</div>}
             <Row gutter={16}>
                 <Col xs={34} sm={12}>

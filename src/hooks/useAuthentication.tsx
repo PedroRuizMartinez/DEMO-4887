@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { url_login } from '../routes';
 
 const useAuthentication = () => {
+    const API_KEY = 'YWRtaW46YWRtaW4=';
     const [userInfo, setUserInfo] = useState({ user: '', role: '', authenticated: false });
     const navigate = useNavigate();
 
     const checkAuthentication = useCallback(() => {
         const credentials = localStorage.getItem('credentials');
-        if (credentials && credentials === 'YWRtaW46YWRtaW4=') {
+        if (credentials && credentials === API_KEY) {
             setUserInfo({ user: 'admin', role: 'ROLE_ADMIN', authenticated: true });
         } else {
             setUserInfo({ user: '', role: '', authenticated: false });

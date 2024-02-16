@@ -7,15 +7,16 @@ const { Title } = Typography;
 const LoginForm: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const API_KEY = 'YWRtaW46YWRtaW4='; // admin:admin
 
     const handleLogin = () => {
         // Verificar si el usuario y la contraseña coinciden con API_KEY
         const encodedCredentials = btoa(`${username}:${password}`);
-        if (encodedCredentials === 'YWRtaW46YWRtaW4=') {
+        if (encodedCredentials === API_KEY) {
             // API_KEY en base64
             // Almacenar las credenciales en localStorage
             localStorage.setItem('credentials', encodedCredentials);
-            // Ejecutar la función de inicio de sesión proporcionada
+            // Ejecutar la función de inicio de sesión
             onLogin();
         } else {
             message.error('Credenciales incorrectas');

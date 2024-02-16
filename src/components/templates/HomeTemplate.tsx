@@ -14,6 +14,11 @@ import useAuthentication from '../../hooks/useAuthentication';
 
 const HomeTemplate: React.FC = () => {
     const { user, role, checkAuthentication, handleLogout } = useAuthentication();
+    const styleParagraph = {
+        fontSize: 14,
+        margin: '15px',
+        color: 'white',
+    };
 
     useEffect(() => {
         checkAuthentication();
@@ -29,14 +34,10 @@ const HomeTemplate: React.FC = () => {
                     <div>CONTACT USERS</div>
                     {user && role && (
                         <>
-                            <Typography.Paragraph
-                                style={{ fontSize: 14, margin: '15px', color: 'white' }}
-                            >
+                            <Typography.Paragraph style={styleParagraph}>
                                 {user}
                             </Typography.Paragraph>
-                            <Typography.Paragraph
-                                style={{ fontSize: 12, margin: '15px', color: 'white' }}
-                            >
+                            <Typography.Paragraph style={styleParagraph}>
                                 {role}
                             </Typography.Paragraph>
                         </>
